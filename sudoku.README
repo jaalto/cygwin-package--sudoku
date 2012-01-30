@@ -1,0 +1,64 @@
+sudoku
+------------------------------------------
+
+Console based sudoku
+
+A puzzle generator with features: generates hints upon request;
+classification of board difficulty (very easy, easy, medium, hard or
+fiendish); generation of new boards.
+
+Runtime requirements:
+  cygwin
+  libncurses8
+
+Build requirements:
+  cygwin
+  libncurses-devel
+
+Canonical homepage:
+  http://packages.debian.org/unstable/sudoku
+
+Canonical download:
+  See above
+
+Version control repository:
+
+Mailing list:
+
+Forum / Wiki:
+
+IRC channel:
+
+Upstream contact:
+  Maintainer: Michael Kennett <mike@laurasia.com.au>
+  Bugs: Michael Kennett <mike@laurasia.com.au>
+
+License:
+  Public Domain
+
+Language:
+  C
+
+------------------------------------------
+
+Build instructions:
+  unpack sudoku-*-src.tar.bz2
+    if you use setup to install this source package, it will be
+    unpacked under /usr/src automatically
+  cd /usr/src
+  ./sudoku*.sh all
+
+------------------------------------------
+
+Files included in the binary distribution:
+  See content of *.tar.gz
+
+------------------------------------------
+
+Port Notes:
+
+----- version 1.0.1-1 -----
+- Initial release 2008-03-12 Jari Aalto
+
+Cygwin port maintained by: Jari Aalto <jari.aalto@cante.net>
+Copyright (C) 2008 Jari Aalto; Licensed under GPL v2 or later

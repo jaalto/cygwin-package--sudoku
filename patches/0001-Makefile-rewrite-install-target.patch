@@ -1,0 +1,70 @@
+From f0f844719f4889a9c90ec022aaa07825a813e245 Mon Sep 17 00:00:00 2001
+From: Jari Aalto <jari.aalto@cante.net>
+Date: Fri, 14 Mar 2008 13:14:48 +0200
+Subject: [PATCH] Makefile: rewrite install target
+
+Signed-off-by: Jari Aalto <jari.aalto@cante.net>
+---
+ Makefile |   38 +++++++++++++++++++++++++++++++++++++-
+ 1 files changed, 37 insertions(+), 1 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index c8eecc8..05a6d16 100644
+--- a/Makefile
++++ b/Makefile
+@@ -8,15 +8,51 @@ OWN=-o root
+ GRP=-g root
+ DESTDIR=/usr/local
+ 
++all: sudoku
++
+ sudoku: sudoku.c
+ 	$(CC) -o sudoku $(CFLAGS) sudoku.c -lcurses
+ 
+ clean:
+ 	rm -f sudoku
+ 
+-install: sudoku sudoku.6
++install-old: sudoku sudoku.6
+ 	install $(OWN) $(GRP) -m 755 sudoku $(DESTDIR)/bin/sudoku
+ 	install -d $(OWN) $(GRP) -m 755 $(DESTDIR)/share/sudoku
+ 	install $(OWN) $(GRP) -m 644 template $(DESTDIR)/share/sudoku/template
+ 	install $(OWN) $(GRP) -m 644 sudoku.6 $(DESTDIR)/share/man/man6/sudoku.6
+ 
++PACKAGE		= sudoku
++DESTDIR		=
++prefix		= /usr
++exec_prefix	= $(prefix)
++man_prefix	= $(prefix)/share
++
++BINDIR		= $(DESTDIR)$(exec_prefix)/bin
++SHAREDIR	= $(DESTDIR)$(prefix)/share/$(PACKAGE)
++MANDIR		= $(DESTDIR)$(man_prefix)/man
++MANDIR6		= $(MANDIR)/man6
++
++INSTALL		= /usr/bin/install
++INSTALL_BIN	= $(INSTALL) -m 755
++INSTALL_DATA	= $(INSTALL) -m 644
++
++INSTALL_OBJS_BIN   = $(PACKAGE)
++INSTALL_OBJS_MAN  = *.6
++
++install-man:
++	# install-man
++	$(INSTALL_BIN) -d $(MANDIR6)
++	$(INSTALL_DATA) $(INSTALL_OBJS_MAN) $(MANDIR6)
++
++install-bin:
++	# install-bin
++	$(INSTALL_BIN) -d $(BINDIR)
++	$(INSTALL_BIN) -s $(INSTALL_OBJS_BIN) $(BINDIR)
++	$(INSTALL_BIN) -d $(SHAREDIR)
++	$(INSTALL_DATA)	template $(SHAREDIR)
++
++install: all install-bin install-man
++
++.PHONY: clean install install-bin install-man
++
+-- 
+1.5.3.8
+
