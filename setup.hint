@@ -3,4 +3,4 @@ ldesc: "A puzzle generator with features: generates hints upon request;
 classification of board difficulty (very easy, easy, medium, hard or
 fiendish); generation of new boards."
 category: Games
-requires: cygwin libncurses8
+requires: libncursesw10

@@ -8,11 +8,9 @@ classification of board difficulty (very easy, easy, medium, hard or
 fiendish); generation of new boards.
 
 Runtime requirements:
-  cygwin
-  libncurses8
+  libncursesw10
 
 Build requirements:
-  cygwin
   libncurses-devel
 
 Canonical homepage:
@@ -51,14 +49,18 @@ Build instructions:
 ------------------------------------------
 
 Files included in the binary distribution:
-  See content of *.tar.gz
+  See Cygwin package archive
 
 ------------------------------------------
 
 Port Notes:
 
+----- version 1.0.1-2 -----
+- New release 2014-06-12 Jari Aalto
+- Update to libncursesw10
+
 ----- version 1.0.1-1 -----
 - Initial release 2008-03-12 Jari Aalto
 
 Cygwin port maintained by: Jari Aalto <jari.aalto@cante.net>
-Copyright (C) 2008 Jari Aalto; Licensed under GPL v2 or later
+Copyright (C) 2008-2014 Jari Aalto; Licensed under GPL v2 or later
